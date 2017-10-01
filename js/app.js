@@ -1,18 +1,26 @@
+"use strict";
+
+const state = {
+  currentScreen: null
+}
+
 $().ready(() => {
-  const users = [{id: 1, email: "ruth.cardenas.perez@gmail.com", password: "mery"},
-                 {id: 2, email: "vania@laboratoria.la", password: "vania"}];
+  // Cargando usuarios válidos en local storage
   insertItem('users', users);
+
+  // Renderizando el componente raíz
+  const root = $('#root');
+  render(root);
 });
 
-const insertItem = (key, value) => {
-  if (selectItem(key) === null) {
-    localStorage.setItem(key, JSON.stringify(value));
+const render = (root)=>{
+  root.empty();
+  const wrapper = $('<div class="wrapper"></div>');
+
+  if(state.screen == null){
+    wrapper.append(Login(() => render(root)));
+  }else{
+    // section.append(state.screen( _ => render(root)));
   }
+  root.append(wrapper);
 };
-
-const selectItem = (key) => JSON.parse(localStorage.getItem(key));
-
-const deleteItem = (key) => {
-  localStorage.removeItem(key);
-  return  true;
-}
