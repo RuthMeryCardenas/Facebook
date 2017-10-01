@@ -11,7 +11,17 @@
   </head>
   <body>
     <div class="root">
-      <div class="wrapper"></div>
+      <div class="wrapper">
+        <div class="form">
+          <label for="user-email">Email</label>
+          <input type="text" id="js-user-email" value="">
+          <span class="js-error-message">Mensaje de error</span>
+          <label for="user-password">Password</label>
+          <input type="password" id="js-user-password" value="">
+          <button type="button" name="button">Login</button>
+          <span class="js-error-message">Mensaje de error</span>
+        </div>
+      </div>
     </div>
     <!-- build:js CDN jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
