@@ -1,6 +1,60 @@
+/*import font*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 /* reset styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+  background-color: #e9ebee;
+  font-family: 'Roboto', sans-serif;
+}
+header {
+  background-color: #3b5997;
+  height: 100px;
+  text-align: center;
+}
+header img {
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.btn-container {
+  text-align: center;
+}
+.btn {
+  color: #ffffff;
+  background: #4267b2;
+  border: 0;
+  /*border: 1px solid #24987d;*/
+  padding: 0.5rem 2rem;
+}
+.btn:hover {
+  background-color: #3b5997;
+}
+.form {
+  border: 1px solid lightgray;
+  margin-top: 1rem;
+  position: absolute;
+  padding: 1rem;
+}
+.user-action {
+  margin-bottom: 1rem;
+}
+.user-action label,
+.user-action input,
+.user-action span {
+  display: block;
+}
+.user-action input {
+  height: 1.5rem;
+  width: 200px;
+}
+.user-action span {
+  color: red;
+  font-size: 0.75rem;
 }
