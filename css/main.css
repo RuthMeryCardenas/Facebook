@@ -29,25 +29,53 @@ textarea {
 }
 .wrapper {
   display: flex;
+  font-size: 14px;
   justify-content: center;
 }
 
 /* helpers */
-/*.no-visibility {
+.no-visibility {
   visibility: hidden;
-}*/
+}
 
 /* components */
 .btn-container {
   text-align: center;
 }
-.btn {
+[class^='btn-'] {
   border: 0;
+}
+.btn-default {
+  background-color: #e9ebee;
+  padding: 0.25rem 1rem;
+}
+.btn-default:hover {
+  background-color: lightgray;
+}
+.btn-facebook {
   color: #ffffff;
   background-color: #4267b2;
+  padding: 0.25rem 1rem;
 }
-.btn:hover {
+.btn-facebook:hover {
   background-color: #3b5997;
+}
+.btn-underline {
+  background-color: transparent;
+  padding: 0.5rem;
+  text-decoration: underline;
+}
+.btn-underline:hover {
+  background-color: transparent;
+  color: #3b5997;
+}
+.btn-close {
+  background-color: inherit;
+  color: lightgray;
+  font-weight: bold;
+}
+.btn-close:hover {
+  color: gray;
 }
 
 /* LOGIN */
@@ -95,17 +123,6 @@ textarea {
 .filter-posts {
   padding: 0.5rem 0;
 }
-.filter-posts .btn,
-.post .btn {
-  background-color: transparent;
-  color: #000000;
-  text-decoration: underline;
-}
-.filter-posts .btn:hover,
-.post .btn:hover {
-  background-color: transparent;
-  color: #3b5997;
-}
 .post {
   background-color: #ffffff;
   border: 1px solid lightgray;
@@ -114,7 +131,6 @@ textarea {
 }
 .post .content {
   color: gray;
-  font-size: 14px;
 }
 
 /*MODAL*/
@@ -132,45 +148,30 @@ textarea {
   background-color: #e9ebee;
   display: flex;
   justify-content: space-between;
+  padding: 0.5rem;
 }
 .modal-header span{
   font-weight: bold;
-  margin-left: 0.5rem;
-  margin-top: 0.5rem;
-}
-.modal-header .btn {
-  background-color: inherit;
-  color: lightgray;
-  font-size: 1.25rem;
-}
-.modal-header .btn:hover {
-  color: gray;
 }
 .modal-body {
   margin-top: 200px;
   width: 50%;
 }
 
-/*CONFIRM*/
-.confirm {
+/*CONFIRM DELETE*/
+.confirm-delete {
   background-color: #ffffff;
   color: #000000;
   padding: 0.5rem;
 }
-.confirm p {
+.confirm-delete p {
   margin-bottom: 0.5rem;
 }
-.confirm .actions {
+.confirm-delete .actions {
   padding: 0 0.5rem;
   text-align: right;
 }
-.confirm .actions .btn:nth-child(1) {
-  background-color: #e9ebee;
-  color: #000000;
-}
-.confirm .actions .btn:nth-child(1):hover {
-  background-color: lightgray;
-}
+
 /* javascript classes */
 .js-error-message {
   color: red;
@@ -179,12 +180,4 @@ textarea {
 }
 .js-btn-login {
   padding: 0.5rem 2rem;
-}
-.js-btn-toPost {
-  padding: 0.25rem 1rem;
-}
-.js-btn-filter,
-.js-btn-update,
-.js-btn-delete {
-  padding: 0.5rem;
 }

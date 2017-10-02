@@ -24,12 +24,12 @@
                 <option value="0">Amigos</option>
                 <option value="1">Público</option>
               </select>
-              <button class="btn js-btn-toPost" type="button">Publicar</button>
+              <button id="js-btn-toPost" class="btn-facebook" type="button">Publicar</button>
             </div>
           </fieldset>
           <div class="filter-posts">
-            <button class="btn js-btn-filter" type="button">Público</button>
-            <button class="btn js-btn-filter" type="button">Amigos</button>
+            <button id="js-filter-public" class="btn-underline" type="button">Público</button>
+            <button id="js-filter-friends" class="btn-underline" type="button">Amigos</button>
           </div>
           <div class="profile-posts">
             <div id="0" class="post">
@@ -39,8 +39,8 @@
                 ¡Una combinación explosiva de sabores!
               </p>
               <div class="actions">
-                <button class="btn js-btn-update" type="button">Editar</button>
-                <button class="btn js-btn-delete" type="button">Eliminar</button>
+                <button class="btn-underline js-open-modal-update" type="button">Editar</button>
+                <button class="btn-underline js-open-modal-delete" type="button">Eliminar</button>
               </div>
             </div>
             <div id="1" class="post">
@@ -50,19 +50,19 @@
                 ¡Una combinación explosiva de sabores!
               </p>
               <div class="actions">
-                <button class="btn js-btn-update" type="button">Editar</button>
-                <button class="btn js-btn-delete" type="button">Eliminar</button>
+                <button class="btn-underline js-open-modal-update" type="button">Editar</button>
+                <button class="btn-underline js-open-modal-delete" type="button">Eliminar</button>
               </div>
             </div>
           </div>
         </div>
         <div class="modal no-visibility">
           <div class="modal-body">
-            <div class="modal-header">
+            <!-- <div class="modal-header">
               <span>Editar publicación</span>
-              <button class="btn js-btn-delete" type="button">X</button>
-            </div>
-            <div class="modal-root">
+              <button id="js-close-modal" class="btn-close" type="button">X</button>
+            </div> -->
+            <!-- <div class="modal-root">
               <fieldset class="new-post">
                 <textarea class="content" rows="7" placeholder="¿Qué estás pensando?">Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!
                 </textarea>
@@ -71,21 +71,25 @@
                     <option value="0">Amigos</option>
                     <option value="1">Público</option>
                   </select>
-                  <button class="btn js-btn-toPost" type="button">Guardar</button>
+                  <button id="js-btn-update" class="btn-facebook" type="button">Guardar</button>
                 </div>
               </fieldset>
+            </div> -->
+            <div class="modal-header">
+              <span>Eliminar publicación</span>
+              <button id="js-close-modal" class="btn-close" type="button">X</button>
             </div>
-            <!-- <div class="modal-root">
-              <div class="confirm">
+            <div class="modal-root">
+              <div class="confirm-delete">
                 <p>Esta publicación se eliminará y ya no podrás encontrarla.
                   Puedes editarla si solo quieres modificar alguno de sus elementos.
                 </p>
                 <div class="actions">
-                  <button class="btn js-btn-toPost" type="button">Cancelar</button>
-                  <button class="btn js-btn-toPost" type="button">Eliminar</button>
+                  <button class="btn-default" type="button">Cancelar</button>
+                  <button class="btn-facebook" type="button">Eliminar</button>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
