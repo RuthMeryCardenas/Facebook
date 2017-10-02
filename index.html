@@ -15,33 +15,90 @@
       <img src="assets/img/facebook.jpg" alt="">
     </header>
     <div id="root" class="root">
-      <!-- <div class="wrapper">
-        <div class="form">
-          <div class="user-action">
-            <label for="user-email">Email</label>
-            <input type="text" id="js-user-email" value="">
-            <span class="js-error-message no-visibility">error 1</span>
+      <div class="wrapper">
+        <div class="profile">
+          <fieldset class="new-post">
+            <textarea class="content" rows="7" placeholder="¿Qué estás pensando?"></textarea>
+            <div class="actions">
+              <select class="privacy">
+                <option value="0">Amigos</option>
+                <option value="1">Público</option>
+              </select>
+              <button class="btn js-btn-toPost" type="button">Publicar</button>
+            </div>
+          </fieldset>
+          <div class="filter-posts">
+            <button class="btn js-btn-filter" type="button">Público</button>
+            <button class="btn js-btn-filter" type="button">Amigos</button>
           </div>
-          <div class="user-action">
-            <label for="user-password">Password</label>
-            <input type="password" id="js-user-password" value="">
-            <span class="js-error-message no-visibility">error 2</span>
-          </div>
-          <div class="btn-container">
-            <button class="btn js-btn-login" type="button" >Login</button>
+          <div class="profile-posts">
+            <div id="0" class="post">
+              <p class="content">
+                Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen
+                y lo termina en la parrilla con unos agregados DELUXE por encima.
+                ¡Una combinación explosiva de sabores!
+              </p>
+              <div class="actions">
+                <button class="btn js-btn-update" type="button">Editar</button>
+                <button class="btn js-btn-delete" type="button">Eliminar</button>
+              </div>
+            </div>
+            <div id="1" class="post">
+              <p class="content">
+                Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen
+                y lo termina en la parrilla con unos agregados DELUXE por encima.
+                ¡Una combinación explosiva de sabores!
+              </p>
+              <div class="actions">
+                <button class="btn js-btn-update" type="button">Editar</button>
+                <button class="btn js-btn-delete" type="button">Eliminar</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div> -->
+        <div class="modal no-visibility">
+          <div class="modal-body">
+            <div class="modal-header">
+              <span>Editar publicación</span>
+              <button class="btn js-btn-delete" type="button">X</button>
+            </div>
+            <div class="modal-root">
+              <fieldset class="new-post">
+                <textarea class="content" rows="7" placeholder="¿Qué estás pensando?">Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!
+                </textarea>
+                <div class="actions">
+                  <select class="privacy">
+                    <option value="0">Amigos</option>
+                    <option value="1">Público</option>
+                  </select>
+                  <button class="btn js-btn-toPost" type="button">Guardar</button>
+                </div>
+              </fieldset>
+            </div>
+            <!-- <div class="modal-root">
+              <div class="confirm">
+                <p>Esta publicación se eliminará y ya no podrás encontrarla.
+                  Puedes editarla si solo quieres modificar alguno de sus elementos.
+                </p>
+                <div class="actions">
+                  <button class="btn js-btn-toPost" type="button">Cancelar</button>
+                  <button class="btn js-btn-toPost" type="button">Eliminar</button>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- build:js CDN jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <!-- endbuild -->
 
     <!-- build:js js/app.js -->
-    <script type="text/javascript" src="js/database-manager.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <!-- <script type="text/javascript" src="js/database-manager.js"></script> -->
+    <!-- <script type="text/javascript" src="js/login.js"></script> -->
+    <!-- <script type="text/javascript" src="js/app.js"></script> -->
     <!-- endbuild -->
   </body>
 </html>
