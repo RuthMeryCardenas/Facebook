@@ -16,7 +16,7 @@ const Login = (update) => {
   userAction2.append('<span class="js-error-message no-visibility">error 2</span>');
 
   const btnContainer = $('<div class="btn-container"></div>');
-  const btnLogin = $('<button class="btn js-btn-login" type="button" >Login</button>');
+  const btnLogin = $('<button class="btn-facebook js-btn-login" type="button" >Login</button>');
   btnContainer.append(btnLogin);
 
 
@@ -25,7 +25,7 @@ const Login = (update) => {
     if (validateForm(userEmail.val(), userPassword.val())) {
       // Cambiar pantalla de la app
       updateItem('screen', 'profile', 'string');
-      
+
       // Renderizar componente raíz
       const root = $('#root');
       render(root);

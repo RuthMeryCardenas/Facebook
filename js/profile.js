@@ -53,6 +53,13 @@ const Post = (id) => {
   post.append(content);
   post.append(actions);
 
+  btn_modal_update.on('click', (e) => {
+    showModal($('.modal'), 'Editar publicación', ModalUpdate);
+  });
+  btn_modal_delete.on('click', (e) => {
+    showModal($('.modal'), 'Eliminar publicación', ModalDelete);
+  });
+
   return post;
 };
 
