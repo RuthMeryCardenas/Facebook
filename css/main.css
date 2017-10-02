@@ -7,22 +7,24 @@
   margin: 0;
   padding: 0;
 }
+
+/* basic styles */
 body {
   background-color: #e9ebee;
   font-family: 'Roboto', sans-serif;
 }
-header {
-  background-color: #3b5997;
-  height: 100px;
-  text-align: center;
+
+/* helpers */
+.no-visibility {
+  visibility: hidden;
 }
-header img {
-  height: 100%;
+.js-error-message {
+  color: red;
+  font-size: 0.75rem;
+  margin-bottom: 0.1rem;
 }
-.wrapper {
-  display: flex;
-  justify-content: center;
-}
+
+/* components */
 .btn-container {
   text-align: center;
 }
@@ -36,14 +38,26 @@ header img {
 .btn:hover {
   background-color: #3b5997;
 }
+header {
+  background-color: #3b5997;
+  height: 100px;
+  text-align: center;
+}
+header img {
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
 .form {
   border: 1px solid lightgray;
-  margin-top: 1rem;
+  margin-top: 2rem;
   position: absolute;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 .user-action {
-  margin-bottom: 1rem;
+  margin-bottom: 1.75rem;
 }
 .user-action label,
 .user-action input,
@@ -51,10 +65,6 @@ header img {
   display: block;
 }
 .user-action input {
-  height: 1.5rem;
-  width: 200px;
-}
-.user-action span {
-  color: red;
-  font-size: 0.75rem;
+  height: 2rem;
+  width: 250px;
 }

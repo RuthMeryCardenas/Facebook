@@ -19,6 +19,7 @@ const render = (root)=>{
 
   if(state.screen == null){
     wrapper.append(Login(() => render(root)));
+    state.currentScreen == "login";
   }else{
     // section.append(state.screen( _ => render(root)));
   }
