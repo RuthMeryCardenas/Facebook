@@ -27,9 +27,6 @@ const render = (root)=>{
     wrapper.append(Profile(() => render(root)));
     const modal = $('<div class="modal no-visibility"></div>');
     wrapper.append(modal);
-    // toggleElement(modal);
-    // modal.append(ModalBody('Editar publicación', ModalUpdate));
-
     console.log("Profile | logged user");
       break;
     default:

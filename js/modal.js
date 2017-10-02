@@ -62,6 +62,28 @@ const ModalDelete = () => {
   return root;
 };
 
+const ModalMessage = () => {
+  const root = $('<div class="modal-root"></div>');
+
+  const modalMessage = $('<div class="confirm-message"></div>');
+
+  const content = $('<p>Parece que esta publicación está vacía. Escribe algo o adjunta un enlace o una foto para publicar.</p>');
+
+  const actions = $('<div class="actions"></div>');
+  const btn_close = $('<button class="btn-facebook js-btn-toPost" type="button">Cerrar</button>');
+  actions.append(btn_close);
+
+  modalMessage.append(content);
+  modalMessage.append(actions);
+  root.append(modalMessage);
+
+  btn_close.on('click', (e) => {
+    hideModal($('.modal'));
+  });
+
+  return root;
+};
+
 const showModal = (modal, actionUser, root) => {
   $(modal).removeClass('no-visibility');
   modal.append(ModalBody(actionUser, root));

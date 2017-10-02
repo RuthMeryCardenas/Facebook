@@ -25,9 +25,9 @@ const NewPost = () => {
   const content = $('<textarea class="content" rows="7" placeholder="¿Qué estás pensando?"></textarea>');
 
   const actions = $('<div class="actions"></div>');
-  const privacy = $('<select class="privacy"></select>');
-  privacy.append('<option value="0">Amigos</option>');
-  privacy.append('<option value="1">Público</option>');
+  const privacy = $('<select class="privacy" name="privacy"></select>');
+  privacy.append('<option value="public">Público</option>');
+  privacy.append('<option value="friends">Amigos</option>');
   const btn_toPost = $('<button id="js-btn-toPost" class="btn-facebook" type="button">Publicar</button>');
   actions.append(privacy);
   actions.append(btn_toPost);
@@ -35,14 +35,24 @@ const NewPost = () => {
   newPost.append(content);
   newPost.append(actions);
 
+  btn_toPost.on('click', (e) => {
+    if (content.val() == "") {
+      showModal($('.modal'), 'La publicación está vacía', ModalMessage);
+    }else {
+      const loggedUser = searchItem ('users', (user) => user.login == true);
+      addPost(loggedUser, privacy.val(), content.val());
+      printPosts($('.profile-posts'));
+      content.val('');
+    }
+  });
   return newPost;
 }
 
-const Post = (id) => {
+const Post = (id, text) => {
   const post = $('<div id="' + id + '" class="post"></div>');
 
   const content = $('<p class="content"></p>');
-  content.text('Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!');
+  content.text(text);
 
   const actions = $('<div class="actions"></div>');
   const btn_modal_update = $('<button class="btn-underline js-open-modal-update" type="button">Editar</button>');
@@ -64,11 +74,26 @@ const Post = (id) => {
 };
 
 const printPosts = (container) => {
+  container.empty();
   const loggedUser = searchItem ('users', (user) => user.login == true);
-  const posts = loggedUser.posts;
+  const posts = (loggedUser.posts).reverse();
 
-  posts.forEach((post) => {
-    Post(post.id, post.content);
-    container.append(Post(post.id, post.content));
-  });
+  if (posts.length > 0) {
+    posts.forEach((post) => {
+      Post(post.id, post.content);
+      container.append(Post(post.id, post.content));
+    });
+  }else {
+    container.append('<span>No hay publicaciones anteriores</span>');
+  }
+};
+
+const addPost = (user, privacy, content) => {
+  let data = selectItem('users');
+  const posts = data[user.id].posts;
+  posts.push({id: posts.length,
+              privacy: privacy,
+              content: content});
+
+  localStorage.setItem('users', JSON.stringify(data));
 };

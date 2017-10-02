@@ -124,6 +124,10 @@ textarea {
 .filter-posts {
   padding: 0.5rem 0;
 }
+.profile-posts > span{
+  color: gray;
+  margin-left: 0.5rem;
+}
 .post {
   background-color: #ffffff;
   border: 1px solid lightgray;
@@ -160,16 +164,18 @@ textarea {
 }
 
 /*CONFIRM DELETE*/
-.confirm-delete {
+.confirm-delete,
+.confirm-message {
   background-color: #ffffff;
   color: #000000;
   padding: 0.5rem;
 }
-.confirm-delete p {
+.confirm-delete p,
+.confirm-message p {
   margin-bottom: 0.5rem;
 }
-.confirm-delete .actions {
-  padding: 0 0.5rem;
+.confirm-delete .actions,
+.confirm-message .actions {
   text-align: right;
 }
 
