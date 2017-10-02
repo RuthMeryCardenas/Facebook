@@ -10,8 +10,7 @@ const Profile = (update) => {
   filterPosts.append(btn_friends);
 
   const containerPosts = $('<div class="profile-posts"></div>');
-  containerPosts.append(Post(0));
-  containerPosts.append(Post(1));
+  printPosts(containerPosts);
 
   profile.append(NewPost());
   profile.append(filterPosts);
@@ -55,4 +54,14 @@ const Post = (id) => {
   post.append(actions);
 
   return post;
+};
+
+const printPosts = (container) => {
+  const loggedUser = searchItem ('users', (user) => user.login == true);
+  const posts = loggedUser.posts;
+
+  posts.forEach((post) => {
+    Post(post.id, post.content);
+    container.append(Post(post.id, post.content));
+  });
 };
