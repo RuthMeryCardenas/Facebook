@@ -13,11 +13,25 @@ body {
   background-color: #e9ebee;
   font-family: 'Roboto', sans-serif;
 }
+header {
+  background-color: #3b5997;
+  height: 100px;
+  text-align: center;
+}
+header img {
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
 
 /* helpers */
 .no-visibility {
   visibility: hidden;
 }
+
+/* javascript classes */
 .js-error-message {
   color: red;
   font-size: 0.75rem;
@@ -38,18 +52,8 @@ body {
 .btn:hover {
   background-color: #3b5997;
 }
-header {
-  background-color: #3b5997;
-  height: 100px;
-  text-align: center;
-}
-header img {
-  height: 100%;
-}
-.wrapper {
-  display: flex;
-  justify-content: center;
-}
+
+/* LOGIN */
 .form {
   border: 1px solid lightgray;
   margin-top: 2rem;
