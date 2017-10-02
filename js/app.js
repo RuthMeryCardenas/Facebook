@@ -1,27 +1,33 @@
 "use strict";
 
-const state = {
-  currentScreen: null
-}
-
 $().ready(() => {
-  // Cargando usuarios válidos en local storage
+  // Cargar usuarios válidos en local storage
   insertItem('users', users);
 
-  // Renderizando el componente raíz
+  // Renderizar componente raíz
   const root = $('#root');
   render(root);
 });
 
+// Renderiza el componente raíz según la pantalla actual
 const render = (root)=>{
   root.empty();
   const wrapper = $('<div class="wrapper"></div>');
-
-  if(state.screen == null){
+  switch (selectItem('screen', 'string')) {
+    case null:
+    insertItem('screen', 'login');
     wrapper.append(Login(() => render(root)));
-    state.currentScreen == "login";
-  }else{
-    // section.append(state.screen( _ => render(root)));
+    console.log("pantalla por defecto");
+      break;
+    case 'login':
+    wrapper.append(Login(() => render(root)));
+    console.log("pantalla login");
+      break;
+    case 'profile':
+    console.log("pantalla profile");
+      break;
+    default:
   }
+
   root.append(wrapper);
 };

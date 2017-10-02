@@ -21,11 +21,15 @@ const Login = (update) => {
 
 
   btnLogin.on('click', (e) => {
+    // Validar formulario de login
     if (validateForm(userEmail.val(), userPassword.val())) {
-      console.log("ir a muro");
-    }else {
-      console.log("aún estas en login");
+      // Cambiar pantalla de la app
+      insertItem('screen','profile');
     }
+
+    // Renderizar componente raíz
+    const root = $('#root');
+    render(root);
   });
 
   form.append(userAction1);
@@ -43,6 +47,7 @@ const validateForm = (userEmail, userPassword) => {
     password: false
   };
 
+  // Validar inputs del formulario
   if (userEmail == "") {
     $(message1).removeClass('no-visibility');
     $(message1).text("El campo usuario no puede estar en blanco");
@@ -65,24 +70,23 @@ const validateForm = (userEmail, userPassword) => {
     statusValidations.password = true;
   }
 
+  // Validar si es un usuario válido
   if (statusValidations.email && statusValidations.password) {
-    const validUsers = selectItem("users");
+    const user = searchItem ('users', (user) => user.email == userEmail);
 
-    if (validUsers != null) {
-      let user = validUsers.filter((user) => user.email == userEmail)[0];
-
-      if (user != undefined) {
-        if (user.password != userPassword) {
-          $(message2).removeClass('no-visibility');
-          $(message2).text("Contraseña incorrecta");
-        }else {
-          $(message2).addClass('no-visibility');
-          return true;
-        }
+    if (user !== null) {
+      if (user.password != userPassword) {
+        $(message2).removeClass('no-visibility');
+        $(message2).text("Contraseña incorrecta");
       }else {
-        $(message1).removeClass('no-visibility');
-        $(message1).text("Usuario no registrado");
+        $(message2).addClass('no-visibility');
+        // Actualizar estado del login del usuario
+        updateItem (selectItem('users'), user, 'login', true);
+        return true;
       }
+    }else {
+      $(message1).removeClass('no-visibility');
+      $(message1).text("Usuario no registrado");
     }
   }
   return false;
