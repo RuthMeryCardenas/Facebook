@@ -21,33 +21,30 @@ header {
 header img {
   height: 100%;
 }
+textarea {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  resize: none;
+  width: 100%;
+}
 .wrapper {
   display: flex;
   justify-content: center;
 }
 
 /* helpers */
-.no-visibility {
+/*.no-visibility {
   visibility: hidden;
-}
-
-/* javascript classes */
-.js-error-message {
-  color: red;
-  font-size: 0.75rem;
-  margin-bottom: 0.1rem;
-}
+}*/
 
 /* components */
 .btn-container {
   text-align: center;
 }
 .btn {
-  color: #ffffff;
-  background: #4267b2;
   border: 0;
-  /*border: 1px solid #24987d;*/
-  padding: 0.5rem 2rem;
+  color: #ffffff;
+  background-color: #4267b2;
 }
 .btn:hover {
   background-color: #3b5997;
@@ -71,4 +68,123 @@ header img {
 .user-action input {
   height: 2rem;
   width: 250px;
+}
+
+/* PROFILE */
+.profile {
+  margin-top: 2rem;
+  width: 50%;
+}
+.new-post {
+  background-color: #ffffff;
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+}
+.new-post .content {
+  border: 1px solid lightgray;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem;
+}
+.new-post .actions {
+  text-align: right;
+}
+.new-post .privacy {
+  background-color: #e9ebee;
+  padding: calc(0.25rem - 2px) 0.25rem;
+}
+.filter-posts {
+  padding: 0.5rem 0;
+}
+.filter-posts .btn,
+.post .btn {
+  background-color: transparent;
+  color: #000000;
+  text-decoration: underline;
+}
+.filter-posts .btn:hover,
+.post .btn:hover {
+  background-color: transparent;
+  color: #3b5997;
+}
+.post {
+  background-color: #ffffff;
+  border: 1px solid lightgray;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+.post .content {
+  color: gray;
+  font-size: 14px;
+}
+
+/*MODAL*/
+.modal {
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+.modal-header {
+  background-color: #e9ebee;
+  display: flex;
+  justify-content: space-between;
+}
+.modal-header span{
+  font-weight: bold;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+.modal-header .btn {
+  background-color: inherit;
+  color: lightgray;
+  font-size: 1.25rem;
+}
+.modal-header .btn:hover {
+  color: gray;
+}
+.modal-body {
+  margin-top: 200px;
+  width: 50%;
+}
+
+/*CONFIRM*/
+.confirm {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.5rem;
+}
+.confirm p {
+  margin-bottom: 0.5rem;
+}
+.confirm .actions {
+  padding: 0 0.5rem;
+  text-align: right;
+}
+.confirm .actions .btn:nth-child(1) {
+  background-color: #e9ebee;
+  color: #000000;
+}
+.confirm .actions .btn:nth-child(1):hover {
+  background-color: lightgray;
+}
+/* javascript classes */
+.js-error-message {
+  color: red;
+  font-size: 0.75rem;
+  margin-bottom: 0.1rem;
+}
+.js-btn-login {
+  padding: 0.5rem 2rem;
+}
+.js-btn-toPost {
+  padding: 0.25rem 1rem;
+}
+.js-btn-filter,
+.js-btn-update,
+.js-btn-delete {
+  padding: 0.5rem;
 }
