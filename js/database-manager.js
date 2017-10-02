@@ -5,11 +5,16 @@ const users = [{id: 0, login:false, email: "ruth.cardenas.perez@gmail.com", pass
                {id: 1, login:false, email: "vania@laboratoria.la", password: "vania"}];
 
 // Añade un nuevo item al local storage
-const insertItem = (key, value) => {
-  if (typeof(value) === "string") {
-    localStorage.setItem(key, value);
-  }else if(selectItem(key) === null) {
-    localStorage.setItem(key, JSON.stringify(value));
+const insertItem = (key, value, datatype) => {
+  if (datatype == 'string') {
+    if (selectItem(key, 'string') === null) {
+      localStorage.setItem(key, value);
+    }
+  }
+  if (datatype === undefined){
+    if (selectItem(key) === null) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
   }
 };
 
@@ -28,14 +33,27 @@ const deleteItem = (key) => {
 }
 
 // Actualiza el valor de un item del local storage
-const updateItem = (key, element, subKey, newValue) => {
+const updateItem = (key, value, datatype) => {
+  if (datatype == 'string') {
+    if (selectItem(key, 'string') !== null) {
+      localStorage.setItem(key, value);
+    }
+    localStorage.setItem(key, value);
+  }
+  if (datatype === undefined){
+    if (selectItem(key) !== null) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  }
+};
+
+// Actualiza el valor de un item del local storage
+const updateSubItem = (key, element, subKey, newValue) => {
   let data = key;
-  console.log(data[element.id][subKey]);
-  console.log(newValue);
 
   if (data[element.id][subKey] != newValue) {
     data[element.id][subKey] = newValue;
-    localStorage.setItem(key, JSON.stringify(data));
+    localStorage.setItem('users', JSON.stringify(data));
     return true;
   }
   return false;

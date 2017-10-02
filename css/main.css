@@ -55,6 +55,7 @@ textarea {
 .btn-facebook {
   color: #ffffff;
   background-color: #4267b2;
+  margin-left: 0.5rem;
   padding: 0.25rem 1rem;
 }
 .btn-facebook:hover {

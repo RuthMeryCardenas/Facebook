@@ -24,12 +24,12 @@ const Login = (update) => {
     // Validar formulario de login
     if (validateForm(userEmail.val(), userPassword.val())) {
       // Cambiar pantalla de la app
-      insertItem('screen','profile');
+      updateItem('screen', 'profile', 'string');
+      
+      // Renderizar componente raíz
+      const root = $('#root');
+      render(root);
     }
-
-    // Renderizar componente raíz
-    const root = $('#root');
-    render(root);
   });
 
   form.append(userAction1);
@@ -81,7 +81,7 @@ const validateForm = (userEmail, userPassword) => {
       }else {
         $(message2).addClass('no-visibility');
         // Actualizar estado del login del usuario
-        updateItem (selectItem('users'), user, 'login', true);
+        updateSubItem (selectItem('users'), user, 'login', true);
         return true;
       }
     }else {

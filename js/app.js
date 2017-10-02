@@ -15,16 +15,17 @@ const render = (root)=>{
   const wrapper = $('<div class="wrapper"></div>');
   switch (selectItem('screen', 'string')) {
     case null:
-    insertItem('screen', 'login');
+    insertItem('screen', 'login', 'string');
     wrapper.append(Login(() => render(root)));
-    console.log("pantalla por defecto");
+    console.log("Login | default screen");
       break;
     case 'login':
     wrapper.append(Login(() => render(root)));
-    console.log("pantalla login");
+    console.log("Login | refresh screen");
       break;
     case 'profile':
-    console.log("pantalla profile");
+    wrapper.append(Profile(() => render(root)));
+    console.log("Profile | logged user");
       break;
     default:
   }
