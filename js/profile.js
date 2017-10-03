@@ -125,3 +125,14 @@ const selectPost = (user, idPost) => {
 
   return currentPost.content;
 };
+
+const updatePost = (user, idPost, privacy, content) => {
+  let data = selectItem('users');
+  const posts = data[user.id].posts;
+  const currentPost = posts.filter((post) => {return post.id == idPost})[0];
+
+  currentPost.privacy = privacy;
+  currentPost.content = content;
+
+  updateItem('users', data);
+};

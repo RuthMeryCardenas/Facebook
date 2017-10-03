@@ -38,7 +38,16 @@ const ModalUpdate = () => {
 
   root.append(modalUpdate);
   btn_save.on('click', (e) => {
+    if (content.val() == "") {
+      showModal($('.modal'), 'La publicación está vacía', ModalMessage);
+    }else {
+      const loggedUser = searchItem ('users', (user) => user.login == true);
+      const selectedPost = $('.profile-posts').find('.post[data-selected="true"]');
 
+      updatePost(loggedUser, selectedPost.data('id'), privacy.val(), content.val());
+      printPosts($('.profile-posts'));
+      hideModal($('.modal'));
+    }
   });
   return root;
 };
