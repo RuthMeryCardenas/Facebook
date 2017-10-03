@@ -105,10 +105,11 @@ const addPost = (user, privacy, content) => {
 const deletePost = (user, idPost) => {
   let data = selectItem('users');
   const posts = data[user.id].posts;
+  const currentPost = posts.filter((post) => {return post.id == idPost})[0];
 
-  posts.splice(idPost, 1);
+  posts.splice(posts.indexOf(currentPost), 1);
 
   updateItem('users', data);
-  hideModal($('.modal'));
   printPosts($('.profile-posts'));
+  hideModal($('.modal'));
 };
