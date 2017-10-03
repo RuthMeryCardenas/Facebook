@@ -64,8 +64,12 @@ const Post = (id, text) => {
   post.append(actions);
 
   btn_modal_update.on('click', (e) => {
-    // const loggedUser = searchItem ('users', (user) => user.login == true);
-    // showModal($('.modal'), 'Editar publicación', ModalUpdate);
+    post.attr('data-selected','true');
+
+    const loggedUser = searchItem ('users', (user) => user.login == true);
+
+    showModal($('.modal'), 'Editar publicación', ModalUpdate);
+    $('.modal-root .content').text(selectPost(loggedUser, post.data('id')));
   });
   btn_modal_delete.on('click', (e) => {
     post.attr('data-selected','true');
@@ -112,4 +116,12 @@ const deletePost = (user, idPost) => {
   updateItem('users', data);
   printPosts($('.profile-posts'));
   hideModal($('.modal'));
+};
+
+const selectPost = (user, idPost) => {
+  let data = selectItem('users');
+  const posts = data[user.id].posts;
+  const currentPost = posts.filter((post) => {return post.id == idPost})[0];
+
+  return currentPost.content;
 };

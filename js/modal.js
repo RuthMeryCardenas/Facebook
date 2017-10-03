@@ -29,15 +29,17 @@ const ModalUpdate = () => {
   const privacy = $('<select class="privacy"></select>');
   privacy.append('<option value="0">Amigos</option>');
   privacy.append('<option value="1">Público</option>');
-  const btn_toPost = $('<button id="js-btn-toPost" class="btn-facebook" type="button">Guardar</button>');
+  const btn_save = $('<button id="js-btn-save" class="btn-facebook" type="button">Guardar</button>');
   actions.append(privacy);
-  actions.append(btn_toPost);
+  actions.append(btn_save);
 
   modalUpdate.append(content);
   modalUpdate.append(actions);
 
   root.append(modalUpdate);
+  btn_save.on('click', (e) => {
 
+  });
   return root;
 };
 
