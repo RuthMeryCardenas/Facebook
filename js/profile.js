@@ -49,7 +49,7 @@ const NewPost = () => {
 }
 
 const Post = (id, text) => {
-  const post = $('<div id="' + id + '" class="post"></div>');
+  const post = $('<div data-id="' + id + '" data-selected="false" class="post"></div>');
 
   const content = $('<p class="content"></p>');
   content.text(text);
@@ -64,9 +64,11 @@ const Post = (id, text) => {
   post.append(actions);
 
   btn_modal_update.on('click', (e) => {
-    showModal($('.modal'), 'Editar publicación', ModalUpdate);
+    // const loggedUser = searchItem ('users', (user) => user.login == true);
+    // showModal($('.modal'), 'Editar publicación', ModalUpdate);
   });
   btn_modal_delete.on('click', (e) => {
+    post.attr('data-selected','true');
     showModal($('.modal'), 'Eliminar publicación', ModalDelete);
   });
 
@@ -91,9 +93,21 @@ const printPosts = (container) => {
 const addPost = (user, privacy, content) => {
   let data = selectItem('users');
   const posts = data[user.id].posts;
+
   posts.push({id: posts.length,
               privacy: privacy,
               content: content});
 
-  localStorage.setItem('users', JSON.stringify(data));
+  updateItem('users', data)
+};
+
+const deletePost = (user, idPost) => {
+  let data = selectItem('users');
+  const posts = data[user.id].posts;
+
+  posts.splice(idPost, 1);
+
+  updateItem('users', data);
+  hideModal($('.modal'));
+  printPosts($('.profile-posts'));
 };

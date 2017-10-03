@@ -59,6 +59,16 @@ const ModalDelete = () => {
 
   root.append(modalDelete);
 
+  btn_cancel.on('click', (e) => {
+    hideModal($('.modal'));
+  });
+  btn_delete.on('click', (e) => {
+    const selectedPost = $('.profile-posts').find('.post[data-selected="true"]');
+    const loggedUser = searchItem ('users', (user) => user.login == true);
+
+    deletePost(loggedUser, selectedPost.data('id'));
+  });
+
   return root;
 };
 
@@ -89,6 +99,9 @@ const showModal = (modal, actionUser, root) => {
   modal.append(ModalBody(actionUser, root));
 }
 const hideModal = (modal) => {
+  const selectedPost = $('.profile-posts').find('.post[data-selected="true"]');
+  selectedPost.attr('data-selected','false');
+
   $(modal).addClass('no-visibility');
   $(modal).empty();
 }
