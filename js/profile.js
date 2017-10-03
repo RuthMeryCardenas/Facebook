@@ -93,8 +93,9 @@ const printPosts = (container) => {
 const addPost = (user, privacy, content) => {
   let data = selectItem('users');
   const posts = data[user.id].posts;
+  const id = posts[posts.length - 1].id + 1;
 
-  posts.push({id: posts.length,
+  posts.push({id: id,
               privacy: privacy,
               content: content});
 
