@@ -5,14 +5,14 @@ const users = [{id: 0,
                 login:false,
                 email: "ruth.cardenas.perez@gmail.com",
                 password: "mery",
-                posts: [{id: 0, type: 'public', content: 'Ayer el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!'},
-                        {id: 1, type: 'friends', content: 'Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!'}]
+                posts: [{id: 0, privacy: 'public', content: 'Ayer el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!'},
+                        {id: 1, privacy: 'friends', content: 'Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!'}]
                 },
                {id: 1,
                 login:false,
                 email: "vania@laboratoria.la",
                 password: "vania",
-                posts: [{id: 0, type: 'public', content: 'Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!'}]
+                posts: [{id: 0, privacy: 'public', content: 'Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!'}]
                 }
               ];
 

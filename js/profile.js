@@ -16,6 +16,43 @@ const Profile = (update) => {
   profile.append(filterPosts);
   profile.append(containerPosts);
 
+  btn_public.on('click', (e) => {
+    const data = selectItem('users');
+    const loggedUser = searchItem ('users', (user) => user.login == true);
+    const posts = data[loggedUser.id].posts;
+
+    const filteredPosts = posts.filter((post) => {return post.privacy == 'public'}).reverse();
+    console.log(filteredPosts);
+    const container = $('.profile-posts');
+    container.empty();
+    if (filteredPosts.length > 0) {
+      filteredPosts.forEach((post) => {
+        Post(post.id, post.content);
+        container.append(Post(post.id, post.content));
+      });
+    }else {
+      container.append('<span>No hay publicaciones anteriores</span>');
+    }
+  });
+  btn_friends.on('click', (e) => {
+    const data = selectItem('users');
+    const loggedUser = searchItem ('users', (user) => user.login == true);
+    const posts = data[loggedUser.id].posts;
+
+    const filteredPosts = posts.filter((post) => {return post.privacy == 'friends'}).reverse();
+    console.log(filteredPosts);
+    const container = $('.profile-posts');
+    container.empty();
+    if (filteredPosts.length > 0) {
+      filteredPosts.forEach((post) => {
+        Post(post.id, post.content);
+        container.append(Post(post.id, post.content));
+      });
+    }else {
+      container.append('<span>No hay publicaciones anteriores</span>');
+    }
+  });
+
   return profile;
 };
 
